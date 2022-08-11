@@ -1,0 +1,9 @@
+li {
+	text-align: center;
+	padding: 10px 10px;
+	list-style-position: inside;
+}
+
+li > button {
+	text-align: center;
+}
