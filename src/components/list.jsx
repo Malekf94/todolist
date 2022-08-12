@@ -1,9 +1,8 @@
 import { useState } from "react";
-import DeleteButton from "./DeleteButton";
-import MoveUp from "./MoveUp";
-import MoveDown from "./MoveDown";
 import ToDoInput from "./form";
 import FinishedList from "./finishedlist";
+import ToggleButton from "./ToggleButton";
+import Mappingtodos from "./Mappingtodos";
 
 function List() {
 	const [todoitems, setToDoList] = useState([
@@ -13,23 +12,28 @@ function List() {
 		"and share",
 	]);
 
+	const [doneItems, setDoneList] = useState([]);
+	const [isShown, setIsClicked] = useState(["show", "hide"]);
+
 	return (
 		<div className="listItems">
 			<ToDoInput setToDoList={setToDoList} />
-			<ol>
+			<ol className={isShown[0]}>
+				<h3>To Do List</h3>
 				<FinishedList todoitems={todoitems} />
-				{todoitems.map((todoitem) => {
-					return (
-						<li key={todoitem}>
-							{todoitem}
-							<br />
-							<DeleteButton setToDoList={setToDoList} todoitem={todoitem} />
-							<MoveUp setToDoList={setToDoList} todoitem={todoitem} />
-							<MoveDown setToDoList={setToDoList} todoitem={todoitem} />
-						</li>
-					);
+				<Mappingtodos
+					setDoneList={setDoneList}
+					todoitems={todoitems}
+					setToDoList={setToDoList}
+				/>
+			</ol>
+			<ol className={isShown[1]}>
+				<h3>Done List</h3>
+				{doneItems.map((doneItem) => {
+					return <li key={doneItem}>{doneItem}</li>;
 				})}
 			</ol>
+			<ToggleButton setIsClicked={setIsClicked} />
 			<footer>
 				<h4>
 					This to do list was brought to you by{" "}
