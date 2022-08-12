@@ -12,6 +12,9 @@ const ToDoInput = ({ setToDoList }) => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		setToDoList((currToDoList) => {
+			if (todoInput.length < 1) {
+				return currToDoList;
+			}
 			const updatedList = [...currToDoList, todoInput];
 			return updatedList;
 		});
