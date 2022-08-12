@@ -22,6 +22,7 @@ li {
 button {
 	background-color: blue;
 	color: white;
+	margin: 5px 5px;
 }
 
 .deletebutton {

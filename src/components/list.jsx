@@ -3,6 +3,7 @@ import DeleteButton from "./DeleteButton";
 import MoveUp from "./MoveUp";
 import MoveDown from "./MoveDown";
 import ToDoInput from "./form";
+import FinishedList from "./finishedlist";
 
 function List() {
 	const [todoitems, setToDoList] = useState([
@@ -16,6 +17,7 @@ function List() {
 		<div className="listItems">
 			<ToDoInput setToDoList={setToDoList} />
 			<ol>
+				<FinishedList todoitems={todoitems} />
 				{todoitems.map((todoitem) => {
 					return (
 						<li key={todoitem}>
