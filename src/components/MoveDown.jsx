@@ -1,15 +1,20 @@
-const MoveDown = ({ setFruits, fruit }) => {
+const MoveDown = ({ setToDoList, todoitem }) => {
 	return (
 		<button
+			alt="button to move item down the todo List"
+			className="movedown"
 			onClick={() => {
-				setFruits((currFruits) => {
-					const oldIndex = currFruits.indexOf(fruit);
-					const aboveFruit = currFruits[oldIndex + 1];
+				setToDoList((currToDoList) => {
+					const oldIndex = currToDoList.indexOf(todoitem);
+					const BelowItem = currToDoList[oldIndex + 1];
+					console.log();
+					if (oldIndex + 1 === currToDoList.length) {
+						return currToDoList;
+					}
 
-					currFruits[oldIndex] = aboveFruit;
-					currFruits[oldIndex + 1] = fruit;
-					console.log(currFruits);
-					return currFruits.map((f) => {
+					currToDoList[oldIndex] = BelowItem;
+					currToDoList[oldIndex + 1] = todoitem;
+					return currToDoList.map((f) => {
 						return f;
 					});
 				});

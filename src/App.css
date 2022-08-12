@@ -1,9 +1,44 @@
+body {
+	background-color: gray;
+	color: white;
+}
+
+.App {
+	background-color: rgb(149, 149, 149);
+	text-align: center;
+}
+
+ol {
+	background-color: gray;
+	margin: 20px 100px;
+}
+
 li {
 	text-align: center;
 	padding: 10px 10px;
 	list-style-position: inside;
 }
 
-li > button {
-	text-align: center;
+button {
+	background-color: blue;
+	color: white;
+}
+
+.deletebutton {
+	background-color: red;
+	color: white;
+}
+
+.moveup {
+	background-color: green;
+	color: white;
+}
+
+.movedown {
+	background-color: rgba(205, 135, 4, 0.896);
+	color: white;
+}
+
+h4 {
+	text-decoration: underline;
 }

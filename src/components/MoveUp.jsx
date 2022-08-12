@@ -1,15 +1,19 @@
-const MoveUp = ({ setFruits, fruit }) => {
+const MoveUp = ({ setToDoList, todoitem }) => {
 	return (
 		<button
+			alt="button to move item up the todo List"
+			className="moveup"
 			onClick={() => {
-				setFruits((currFruits) => {
-					const oldIndex = currFruits.indexOf(fruit);
-					const aboveFruit = currFruits[oldIndex - 1];
+				setToDoList((currToDoList) => {
+					const oldIndex = currToDoList.indexOf(todoitem);
+					const aboveItem = currToDoList[oldIndex - 1];
+					if (oldIndex === 0) {
+						return currToDoList;
+					}
 
-					currFruits[oldIndex] = aboveFruit;
-					currFruits[oldIndex - 1] = fruit;
-					console.log(currFruits);
-					return currFruits.map((f) => {
+					currToDoList[oldIndex] = aboveItem;
+					currToDoList[oldIndex - 1] = todoitem;
+					return currToDoList.map((f) => {
 						return f;
 					});
 				});

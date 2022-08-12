@@ -2,25 +2,40 @@ import { useState } from "react";
 import DeleteButton from "./DeleteButton";
 import MoveUp from "./MoveUp";
 import MoveDown from "./MoveDown";
+import ToDoInput from "./form";
 
 function List() {
-	const [fruits, setFruits] = useState(["kiwi", "lala", "Banana", "Pears"]);
+	const [todoitems, setToDoList] = useState([
+		"Follow our githubs",
+		"then like",
+		"subscribe",
+		"and share",
+	]);
 
 	return (
 		<div className="listItems">
+			<ToDoInput setToDoList={setToDoList} />
 			<ol>
-				{fruits.map((fruit, index) => {
+				{todoitems.map((todoitem) => {
 					return (
-						<li key={fruit}>
-							{fruit}
+						<li key={todoitem}>
+							{todoitem}
 							<br />
-							<DeleteButton setFruits={setFruits} fruit={fruit} />
-							<MoveUp setFruits={setFruits} fruit={fruit} index={index} />
-							<MoveDown setFruits={setFruits} fruit={fruit} />
+							<DeleteButton setToDoList={setToDoList} todoitem={todoitem} />
+							<MoveUp setToDoList={setToDoList} todoitem={todoitem} />
+							<MoveDown setToDoList={setToDoList} todoitem={todoitem} />
 						</li>
 					);
 				})}
 			</ol>
+			<footer>
+				<h4>
+					This to do list was brought to you by{" "}
+					<a href="https://github.com/Malekf94">Malek</a> and{" "}
+					<a href="https://github.com/Mooose17">Tommy</a> dont forget to like,
+					subscribe and share
+				</h4>
+			</footer>
 		</div>
 	);
 }

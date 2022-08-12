@@ -1,10 +1,12 @@
-const DeleteButton = ({ setFruits, fruit }) => {
+const DeleteButton = ({ setToDoList, todoitem }) => {
 	return (
 		<button
+			alt="button to delete item from todo List"
+			className="deletebutton"
 			onClick={() => {
-				setFruits((currFruits) => {
-					return currFruits.filter((item) => {
-						if (item !== fruit) {
+				setToDoList((currToDoList) => {
+					return currToDoList.filter((item) => {
+						if (item !== todoitem) {
 							return item;
 						}
 					});
